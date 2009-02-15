@@ -1,0 +1,8 @@
+<%= @comment.name %> has posted a comment to <%= link_to @comment.post.title, post_url(@comment.post, :host => "blog.jackhq.com" )) %>
+Here are the details:
+
+<%=h @comment.body %>
+
+
+Click here to respond to comment:
+<%= link_to @comment.post.title, url_for(post_path(@comment.post)) %>

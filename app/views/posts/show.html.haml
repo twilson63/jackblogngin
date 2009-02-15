@@ -1,0 +1,24 @@
+%div
+  .post
+    %h3{:class => "ui-state-active"}= link_to "#{@post.title} - #{@post.updated_at.strftime('%m/%d/%Y %H:%M %Z')}"
+    .clearfix
+      %p{:style => "float:right;margin-right:10px;"}
+        - if logged_in?
+          = link_to "Edit", edit_post_path(@post), :class => "ui-widget-header ui-corner-all", :style => "padding : 5px;color:#fff;text-decoration:none;"
+          = link_to "Delete", post_path(@post), :method => :delete, :confirm => "Are You Sure?", :class => "ui-widget-header ui-corner-all", :style => "padding : 5px;color:#fff;text-decoration:none;"
+        = link_to "Back", posts_path, :class => "ui-widget-header ui-corner-all", :style => "padding : 5px;color:#fff;text-decoration:none;"
+ 
+        = render :partial => "post", :object => @post
+%div
+  .comments
+    %h3= link_to "Comments"
+    .clearfix
+      .prepend-17
+        %p{:style => "float:right;margin-right:10px;"}
+          = link_to "New Comment", "#", :id => "new_comment_link", :class => "ui-widget-header ui-corner-all", :style => "padding : 5px;color:#fff;text-decoration:none;"
+      %hr
+      #comments
+        = render :partial => "comments/comment", :collection => @post.comments.all(:order => "created_at DESC")
+
+
+= render :partial => "comments/comment_dialog"

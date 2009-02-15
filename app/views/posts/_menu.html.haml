@@ -1,0 +1,27 @@
+.accordion
+  %div
+    %h3= link_to "Tags"
+    .clearfix
+      %ul{:style => "list-style:none;margin:0;"}
+        = Post.tag_counts.map { |t| content_tag(:li, link_to("#{t.name}", posts_path(:tag => t.name), :style => "padding : 5px;text-decoration:none;font-size:1.#{t.count};" ), :style => "margin: 20px 10px;") }
+
+
+  %div
+    %h3= link_to "About"
+    .clearfix
+      %p
+        = image_tag "nobody.jpg", :class => "ui-corner-all", :style => "padding:2px;border: 5px solid lightgrey;"
+      %p
+        Your Name
+        = link_to "Profile", "#"
+        %br
+        Title
+        %br
+        Company
+        %br
+        Location
+  .menu
+    %h3= link_to "Links"
+    .clearfix
+        
+        

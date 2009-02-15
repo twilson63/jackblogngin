@@ -1,0 +1,7 @@
+== Jack Blog nGin
+
+This is the Jack Blog nGin, the purpose of this plugin is to keep the basic blog functionality in an engine so that multiple projects can use this ngin.  It should provide a very simple way to get started with a blog or cms website.
+
+Requires 
+- Rails 2.3
+- JackStack.rb Template

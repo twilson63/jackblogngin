@@ -1,0 +1,18 @@
+= javascript_tag "$(document).ready( function(){ $('textarea').wysiwyg(); });"
+.accordion
+  %div
+    %h3= link_to "Edit Comment"
+    .clearfix
+      #errors
+      - form_for [@post, @comment] do |f|
+        %p
+          = f.label :name
+          = f.text_field :name, :class => "text"
+        %p
+          = f.label :email
+          = f.text_field :email, :class => "text"
+        %p
+          = f.label :body, "Comment"
+          = f.text_area :body
+        %p
+          = f.submit "Save"

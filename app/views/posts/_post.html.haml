@@ -1,0 +1,8 @@
+%h2{:style => "margin:0;padding:0;"}
+  = link_to post.title, "#", :style => "text-decoration:none;"
+%small{:style => "color:grey;margin:0;padding:0;"}
+  Posted by Tom Wilson on 
+  = post.updated_at.strftime('%m/%d/%Y %H:%M %Z')
+%br
+%br
+= post.description

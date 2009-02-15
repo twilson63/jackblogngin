@@ -1,0 +1,14 @@
+.comment{:id => 'comment_#{comment.id}', :class => cycle("", "even")}
+    
+  = "#{comment.description}"
+  %br
+  %small{:style => "color:grey;margin:0;padding:0;"}
+    Comment Posted By 
+    = "#{comment.name} - #{comment.created_at.strftime('%m/%d/%Y %H:%M %Z')}"
+
+    - if logged_in?
+      .prepend-20
+        = link_to "Edit", edit_post_comment_path(comment.post, comment), :class => "ui-widget-header ui-corner-all", :style => "padding : 5px;color:#fff;text-decoration:none;"
+        = link_to_function "Remove", "$.post('#{post_comment_path(comment.post, comment)}', { _method: 'delete', authenticity_token: '#{form_authenticity_token}'});$(this).parent().remove();", :confirm => "Are You Sure?", :class => "ui-widget-header ui-corner-all", :style => "padding : 5px;color:#fff;text-decoration:none;"
+
+    %hr

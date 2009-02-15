@@ -1,0 +1,22 @@
+.span-6
+  = render :partial => "menu"
+.span-17
+  %div
+    - @posts.each do |p|
+      .post
+        %h3{:class => "#{cycle("ui-state-active","")}" }
+          = link_to "#{p.title}", post_path(p.full_link)
+          
+        .clearfix{:class => ""}
+          = render :partial => "post", :object => p
+          %hr
+          = link_to_function "(Show/Hide Comments)", "$('#comments-#{p.id}').toggle();", :class => "ui-widget-header ui-corner-all", :style => "padding : 5px;color:#fff;text-decoration:none;"
+          
+          %div{:id => "comments-#{p.id}", :style => "display:none;"}
+            .comments
+              %h3= link_to "Comments"
+              .clearfix
+                #comments
+                  = render :partial => "comments/comment", :locals => {:post => p }, :collection => p.comments.all(:order => "created_at DESC")
+
+

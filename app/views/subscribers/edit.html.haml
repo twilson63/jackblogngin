@@ -1,0 +1,7 @@
+.accordion
+  %div
+    %h3= link_to "Edit Subscriber"
+    .clearfix
+      - form_for @subscriber do |f|
+        = render :partial => "fields", :locals => { :f => f }
+        = f.submit "Update Subscriber"

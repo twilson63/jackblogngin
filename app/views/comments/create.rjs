@@ -1,0 +1,3 @@
+page.insert_html :top, "comments", :partial => "comments/comment", :object => @comment
+page << "$('.clearfix').addClass('clearfix');"
+page.visual_effect :highlight, :comments

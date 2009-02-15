@@ -1,0 +1,8 @@
+= javascript_tag "$(document).ready( function(){ $('textarea').wysiwyg(); });"
+.accordion
+  %div
+    %h3= link_to "New Post"
+    .clearfix
+      - form_for :post, :url => posts_path do |f|
+        = render :partial => "fields", :locals => { :f => f }
+          

@@ -1,0 +1,4 @@
+%tr
+  %td= link_to subscriber.name, edit_subscriber_path(subscriber)
+  %td= subscriber.email
+  %td= link_to "remove", subscriber_path(subscriber), :method => :delete, :confirm => "Are You Sure?"

@@ -1,0 +1,20 @@
+.span-10
+  %p
+    = f.label :title
+    = f.text_field :title, :class => "title"
+.span-10
+  %p
+    = f.label :tag_list, "Tags"
+    = f.text_field :tag_list, :class => "text"
+.span-2{:class => "last"}
+  %p
+    %br
+    = f.submit "Post", :class => "button"
+
+.span-22
+    
+  = f.check_box :published
+  Publish Post
+%hr
+%p
+  = f.text_area :body, :style => "width:800px;"

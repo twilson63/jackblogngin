@@ -1,0 +1,12 @@
+#comment_dialog{:title => "New Comment"}
+  #errors
+  - form_for :comment, :url => post_comments_path(@post), :html => {:id => "new_comment_form"} do |f|
+    %p
+      = f.label :name
+      = f.text_field :name, :class => "text"
+    %p
+      = f.label :email
+      = f.text_field :email, :class => "text"
+    %p
+      = f.label :body, "Comment"
+      = f.text_area :body

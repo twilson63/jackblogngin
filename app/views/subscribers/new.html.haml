@@ -1,0 +1,7 @@
+.accordion
+  %div
+    %h3= link_to "New Subscriber"
+    .clearfix
+      - form_for :subscriber, :url => subscribers_path do |f|
+        = render :partial => "fields", :locals => { :f => f }
+        = f.submit "Create Subscriber"
